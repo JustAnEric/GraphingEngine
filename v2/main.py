@@ -1,5 +1,8 @@
 from model import *
 from camera import Camera
+from light import Light
+from mesh import Mesh
+from scene import Scene
 import moderngl as mgl
 import pygame as pg
 import numpy as np
@@ -23,13 +26,15 @@ class GraphicsEngine:
         self.clock = pg.time.Clock()
         self.time = 0
         self.delta_time = 0
+        self.light = Light()
         self.camera = Camera(self)
-        self.scene = Cube(self)
+        self.mesh = Mesh(self)
+        self.scene = Scene(self)
     
     def check_events(self):
         for event in pg.event.get():
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
-                self.scene.destroy()
+                self.mesh.destroy()
                 pg.quit()
                 sys.exit()
     

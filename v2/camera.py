@@ -26,7 +26,7 @@ class Camera:
         rel_x,rel_y = pg.mouse.get_rel()
         self.yaw += rel_x * SENSITIVITY
         self.pitch -= rel_y * SENSITIVITY
-        self.pitch = max(-89, min(-89, self.pitch))
+        self.pitch = max(-89, min(89, self.pitch))
 
     def update_camera_vectors(self):
         yaw,pitch = glm.radians(self.yaw), glm.radians(self.pitch)
