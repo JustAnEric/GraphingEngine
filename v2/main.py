@@ -22,7 +22,7 @@ class GraphicsEngine:
         pg.mouse.set_visible(False)
         self.ctx = mgl.create_context()
         #self.ctx.front_face = 'cw'
-        self.ctx.enable(flags=mgl.DEPTH_TEST | mgl.CULL_FACE)
+        self.ctx.enable(flags=mgl.DEPTH_TEST | mgl.CULL_FACE | mgl.BLEND)
         self.clock = pg.time.Clock()
         self.time = 0
         self.delta_time = 0
@@ -50,12 +50,17 @@ class GraphicsEngine:
         self.time = pg.time.get_ticks() * 0.001
     
     def run(self):
+        portionProperty = 0
         while True:
             self.get_time()
             self.check_events()
             self.camera.update()
             self.render()
             self.delta_time = self.clock.tick(60)
+            if portionProperty == 90000:
+                self.scene.render_new_chunk()
+                portionProperty = 0
+            else: portionProperty += 1
     
 if __name__ == "__main__":
     app = GraphicsEngine()

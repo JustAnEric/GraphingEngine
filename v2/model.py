@@ -1,6 +1,6 @@
 import moderngl as mgl, pygame as pg, numpy as np, glm
 
-increment_spacing_between_models = (2,2,2)
+inc_sbm, increm_sbm = 2, (2,2,2)
 
 class BaseModel:
     def __init__(self, app, vao_name, tex_id, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
