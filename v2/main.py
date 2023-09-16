@@ -1,13 +1,28 @@
 from model import *
 from camera import Camera
+from camera import Player
 from light import Light
 from mesh import Mesh
 from scene import Scene
 import moderngl as mgl
-import pygame as pg
 import numpy as np
 import sys, os, time, signal 
 
+import pygame as pg
+
+class MainGameWindow():
+    def __init__(self) -> None:
+        super().__init__()
+        self.draw_game()
+        #pg.draw.rect(self.game.screen, self.game.inventory_frame_color, self.game.inventory_frame, 500)
+        pg.draw.rect(self.game.screen, self.game.inventory_frame_color, pg.Rect(20, 20, 160, 160))
+
+    def draw_game(self):
+        self.game = GraphicsEngine()
+        self.game.run()
+    
+    def update(self):
+        self.game.update()
 
 class GraphicsEngine:
     def __init__(self, win_size=(1600,900)):
@@ -16,20 +31,27 @@ class GraphicsEngine:
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MAJOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_MINOR_VERSION, 3)
         pg.display.gl_set_attribute(pg.GL_CONTEXT_PROFILE_MASK, pg.GL_CONTEXT_PROFILE_CORE)
-        pg.display.set_mode(self.WIN_SIZE, flags=pg.OPENGL | pg.DOUBLEBUF)
+        self.screen = pg.display.set_mode(self.WIN_SIZE, flags=pg.OPENGL | pg.DOUBLEBUF)
         #mouse settings
         pg.event.set_grab(True)
         pg.mouse.set_visible(False)
         self.ctx = mgl.create_context()
         #self.ctx.front_face = 'cw'
-        self.ctx.enable(flags=mgl.DEPTH_TEST | mgl.CULL_FACE | mgl.BLEND)
+        self.ctx.enable(
+            flags=mgl.DEPTH_TEST #| mgl.CULL_FACE
+        )
         self.clock = pg.time.Clock()
         self.time = 0
         self.delta_time = 0
         self.light = Light()
-        self.camera = Camera(self)
+        self.camera = Player(self)
         self.mesh = Mesh(self)
         self.scene = Scene(self)
+
+        corners = pg.display.get_window_size()
+
+        self.inventory_frame_color = pg.Color(255, 255, 255)
+
     
     def check_events(self):
         for event in pg.event.get():
@@ -40,7 +62,7 @@ class GraphicsEngine:
     
     def render(self):
         #clear framebuffer
-        self.ctx.clear(color=(0.08, 0.16, 0.18))
+        self.ctx.clear(color=(0.29, 0.195, 2.40))
         # render scene
         self.scene.render()
         #swap buffers
@@ -50,18 +72,19 @@ class GraphicsEngine:
         self.time = pg.time.get_ticks() * 0.001
     
     def run(self):
-        portionProperty = 0
         while True:
             self.get_time()
             self.check_events()
             self.camera.update()
             self.render()
-            self.delta_time = self.clock.tick(60)
-            if portionProperty == 90000:
-                self.scene.render_new_chunk()
-                portionProperty = 0
-            else: portionProperty += 1
+            self.delta_time = self.clock.tick(100)
+
+    def update(self):
+        self.get_time()
+        self.check_events()
+        self.camera.update()
+        self.render()
+        self.delta_time = self.clock.tick(100)
     
 if __name__ == "__main__":
-    app = GraphicsEngine()
-    app.run()
+    app = MainGameWindow()
