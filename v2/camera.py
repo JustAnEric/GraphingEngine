@@ -1,4 +1,4 @@
-import glm, pygame as pg, time, threading
+import glm, pygame as pg, time, threading, os,sys
 #from main import GraphicsEngine
 
 FOV = 50 #deg
@@ -6,6 +6,16 @@ NEAR = 0.1
 FAR = 25
 SPEED = 0.01
 SENSITIVITY = 0.05
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 class Camera:
     def __init__(self, app, position=(0,0,4), yaw=-90, pitch=0):
