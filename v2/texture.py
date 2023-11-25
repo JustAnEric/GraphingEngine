@@ -21,7 +21,7 @@ class Texture:
         self.textures[4] = self.get_texture('textures/bummilkshake.png')
 
     def get_texture(self, path):
-        texture = pg.image.load(path).convert()
+        texture = pg.image.load(resource_path(path)).convert()
         texture = pg.transform.flip(texture, flip_x=False, flip_y=True)
         texture = self.ctx.texture(size=texture.get_size(), components=3, data=pg.image.tostring(texture, 'RGB'))
         #mipmaps

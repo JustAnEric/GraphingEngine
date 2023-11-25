@@ -7,7 +7,7 @@ from scene import Scene
 import moderngl as mgl
 import numpy as np
 import sys, os, time, signal 
-
+from timecycle import TimeController
 import pygame as pg
 
 def resource_path(relative_path):
@@ -25,7 +25,8 @@ class MainGameWindow():
         super().__init__()
         self.draw_game()
         #pg.draw.rect(self.game.screen, self.game.inventory_frame_color, self.game.inventory_frame, 500)
-        pg.draw.rect(self.game.screen, self.game.inventory_frame_color, pg.Rect(20, 20, 160, 160))
+        #self.game.screen.fill((0, 0, 0))
+        #pg.draw.rect(self.game.screen, self.game.inventory_frame_color, pg.Rect(0, 0, 160, 160))
 
     def draw_game(self):
         self.game = GraphicsEngine()
@@ -57,10 +58,13 @@ class GraphicsEngine:
         self.camera = Player(self)
         self.mesh = Mesh(self)
         self.scene = Scene(self)
+        self.timecycle = TimeController(self)
 
         corners = pg.display.get_window_size()
 
-        self.inventory_frame_color = pg.Color(255, 255, 255)
+        self.inventory_frame_color = (255, 255, 255)
+
+        self.timecycle.runs()
 
     
     def check_events(self):
@@ -72,10 +76,11 @@ class GraphicsEngine:
     
     def render(self):
         #clear framebuffer
-        self.ctx.clear(color=(0.29, 0.195, 2.40))
+        self.ctx.clear(color=self.timecycle.get_calc_c())
         # render scene
         self.scene.render()
         #swap buffers
+
         pg.display.flip()
 
     def get_time(self):
@@ -95,6 +100,11 @@ class GraphicsEngine:
         self.camera.update()
         self.render()
         self.delta_time = self.clock.tick(100)
+
+        self.screen.fill((0, 0, 0))
+
+        d = pg.draw.rect(self.screen, self.inventory_frame_color, (0, 0, 160, 160))
+        pg.display.update()
     
 if __name__ == "__main__":
     app = MainGameWindow()
