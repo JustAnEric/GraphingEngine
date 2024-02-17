@@ -9,8 +9,8 @@ uniform mat4 m_model;
 uniform uint mode_id;
 
 const vec3 marker_colors[2] = vec3[2](
-    vec3(0.48, 0, 0), 
-    vec3(0, 0.38, 0.48)
+    /*vec3(0.48, 0.48, 0.48),*/ vec3(1.00, 0.00, 0.00),
+    vec3(0, 0.28, 0.28)
 );
 
 out vec3 marker_color;

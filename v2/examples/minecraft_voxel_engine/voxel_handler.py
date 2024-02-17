@@ -1,5 +1,6 @@
 from settings import *
 from meshes.chunk_mesh_builder import get_chunk_index
+import random,pygame as pg
 
 
 class VoxelHandler:
@@ -59,7 +60,19 @@ class VoxelHandler:
 
     def remove_voxel(self):
         if self.voxel_id:
+            prevVoxelId = self.voxel_id
             self.chunk.voxels[self.voxel_index] = 0
+            
+            if prevVoxelId == WOOD:
+                self.app.mixer.play_sound(f"./sounds/block_mining/{random.choice(['Wood_dig1.ogg', 'Wood_dig2.ogg', 'Wood_dig3.ogg', 'Wood_dig4.ogg'])}")
+            if prevVoxelId == STONE:
+                self.app.mixer.play_sound(f"./sounds/block_mining/{random.choice(['Stone_dig1.ogg', 'Stone_dig2.ogg', 'Stone_dig3.ogg', 'Stone_dig4.ogg'])}")
+            if prevVoxelId == SNOW:
+                self.app.mixer.play_sound(f"./sounds/block_mining/{random.choice(['Snow_dig1.ogg', 'Snow_dig2.ogg', 'Snow_dig3.ogg', 'Snow_dig4.ogg'])}")
+            if prevVoxelId == DIRT:
+                self.app.mixer.play_sound(f"./sounds/block_mining/{random.choice(['Grass_dig1.ogg', 'Grass_dig2.ogg', 'Grass_dig3.ogg', 'Grass_dig4.ogg'])}")
+            if prevVoxelId == GRASS:
+                self.app.mixer.play_sound(f"./sounds/block_mining/{random.choice(['Grass_dig1.ogg', 'Grass_dig2.ogg', 'Grass_dig3.ogg', 'Grass_dig4.ogg'])}")
 
             self.chunk.mesh.rebuild()
             self.rebuild_adjacent_chunks()
@@ -75,6 +88,7 @@ class VoxelHandler:
 
     def update(self):
         self.ray_cast()
+        self.app.inventory.keyboard_control()
 
     def ray_cast(self):
         # start point
@@ -148,3 +162,16 @@ class VoxelHandler:
 
             return voxel_id, voxel_index, voxel_local_pos, chunk
         return 0, 0, 0, 0
+    
+    def get_voxel_below_player(self, player_pos):
+        for i in range(WORLD_H, -WORLD_H):
+            get_voxel = self.get_voxel_id(glm.vec3(player_pos.x, i, player_pos.z))
+            if get_voxel == 0:
+                continue
+            else:
+                if player_pos.y <= get_voxel[2].y:
+                    continue
+                else:
+                    return get_voxel
+        return 0, 0, 0, 0
+        

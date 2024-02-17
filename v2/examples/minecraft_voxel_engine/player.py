@@ -1,6 +1,7 @@
 import pygame as pg
 from camera import Camera
 from settings import *
+from threading import Thread
 
 
 class Player(Camera):
@@ -11,6 +12,7 @@ class Player(Camera):
     def update(self):
         self.keyboard_control()
         self.mouse_control()
+        self.gravity_()
         super().update()
 
     def handle_event(self, event):
@@ -40,7 +42,13 @@ class Player(Camera):
             self.move_right(vel)
         if key_state[pg.K_a]:
             self.move_left(vel)
-        if key_state[pg.K_q]:
-            self.move_up(vel)
-        if key_state[pg.K_e]:
-            self.move_down(vel)
+        if key_state[pg.K_SPACE]:
+            if self.app.gamemode == GameMode.SURVIVAL:
+                Thread(target=self.jump).start()
+            elif self.app.gamemode == GameMode.CREATIVE or self.app.gamemode == GameMode.SPECTATOR:
+                self.move_up(vel)
+        if self.app.gamemode == GameMode.CREATIVE:
+            if key_state[pg.K_q]:
+                self.move_up(vel)
+            if key_state[pg.K_e]:
+                self.move_down(vel)

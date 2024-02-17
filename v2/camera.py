@@ -85,7 +85,7 @@ class Player(Camera):
             time.sleep(0.1)
             self.position += self.up * (i/2)
         for i in range(3):
-            time.sleep(0.2)
+            time.sleep(0.3)
             self.position -= self.up * (i/2)
         
     def move(self):

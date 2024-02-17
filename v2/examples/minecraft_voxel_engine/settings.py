@@ -3,11 +3,17 @@ import numpy as np
 import glm
 import math
 
+class GameMode:
+    SURVIVAL = 0
+    CREATIVE = 1
+    ADVENTURE = 2
+    SPECTATOR = 3
+
 # resolution
 WIN_RES = glm.vec2(1600, 900)
 
 # world generation
-SEED = 16
+SEED = 76
 
 # ray casting
 MAX_RAY_DIST = 6
@@ -22,7 +28,7 @@ CHUNK_SPHERE_RADIUS = H_CHUNK_SIZE * math.sqrt(3)
 fps=80
 
 # world
-WORLD_W, WORLD_H = 20, 2
+WORLD_W, WORLD_H = 80, 2
 WORLD_D = WORLD_W
 WORLD_AREA = WORLD_W * WORLD_D
 WORLD_VOL = WORLD_AREA * WORLD_H
@@ -47,7 +53,7 @@ PLAYER_POS = glm.vec3(CENTER_XZ, WORLD_H / CHUNK_SIZE + 20, CENTER_XZ)
 MOUSE_SENSITIVITY = 0.002
 
 # colors
-BG_COLOR = glm.vec3(0.58, 0.83, 0.99)
+BG_COLOR = glm.vec3(0.58, 0.83, 0.99) 
 
 # textures
 SAND = 1
@@ -72,9 +78,12 @@ TREE_WIDTH, TREE_HEIGHT = 4,8
 TREE_H_WIDTH, TREE_H_HEIGHT = TREE_WIDTH//2,TREE_HEIGHT//2
 
 # water
-WATER_LINE = 5.6
+WATER_LINE = 5.92
 WATER_AREA = 5 * CHUNK_SIZE * WORLD_W
 
 # cloud
 CLOUD_SCALE = 25
 CLOUD_HEIGHT = WORLD_H * CHUNK_SIZE * 2
+
+# ui and text
+LETTER_LISTINGS = []

@@ -54,17 +54,17 @@ class Scene:
 
         #add(Cube(app))
         n,s = MAPSIZE,inc_sbm
-        self.mobs.append({
-            "position": {
-                "x": 0,
-                "y": 1,
-                "z": 0
-            },
-            "shape": "cube",
-            "texture": [4],
-            "type": "block",
-            "block": add(BumMilkshake(app, (0,1,0), (0,0,0)))
-        })
+        #self.mobs.append({
+            #"position": {
+                #"x": 0,
+                #"y": 1,
+                #"z": 0
+            #},
+            #"shape": "cube",
+            #"texture": [4],
+            #"type": "block",
+            #"block": add(BumMilkshake(app, (0,1,0), (0,0,0)))
+        #})
         for x in range(-n, n,s):
             global lastPos
             for z in range(-n,n,s):

@@ -1,0 +1,314 @@
+{
+    "characters": [
+        {
+            "name": "A",
+            "description": "uppercase A",
+            "file": "acapital_character.png"
+        },
+        {
+            "name": "B",
+            "description": "uppercase B",
+            "file": "bcapital_character.png"
+        },
+        {
+            "name": "C",
+            "description": "uppercase C",
+            "file": "ccapital_character.png"
+        },
+        {
+            "name": "D",
+            "description": "uppercase D",
+            "file": "dcapital_character.png"
+        },
+        {
+            "name": "E",
+            "description": "uppercase E",
+            "file": "ecapital_character.png"
+        },
+        {
+            "name": "F",
+            "description": "uppercase F",
+            "file": "fcapital_character.png"
+        },
+        {
+            "name": "G",
+            "description": "uppercase G",
+            "file": "gcapital_character.png"
+        },
+        {
+            "name": "H",
+            "description": "uppercase H",
+            "file": "hcapital_character.png"
+        },
+        {
+            "name": "I",
+            "description": "uppercase I",
+            "file": "icapital_character.png"
+        },
+        {
+            "name": "J",
+            "description": "uppercase J",
+            "file": "jcapital_character.png"
+        },
+        {
+            "name": "K",
+            "description": "uppercase K",
+            "file": "kcapital_character.png"
+        },
+        {
+            "name": "L",
+            "description": "uppercase L",
+            "file": "lcapital_character.png"
+        },
+        {
+            "name": "M",
+            "description": "uppercase M",
+            "file": "mcapital_character.png"
+        },
+        {
+            "name": "N",
+            "description": "uppercase N",
+            "file": "ncapital_character.png"
+        },
+        {
+            "name": "O",
+            "description": "uppercase O",
+            "file": "ocapital_character.png"
+        },
+        {
+            "name": "P",
+            "description": "uppercase P",
+            "file": "pcapital_character.png"
+        },
+        {
+            "name": "Q",
+            "description": "uppercase Q",
+            "file": "qcapital_character.png"
+        },
+        {
+            "name": "R",
+            "description": "uppercase R",
+            "file": "rcapital_character.png"
+        },
+        {
+            "name": "S",
+            "description": "uppercase S",
+            "file": "scapital_character.png"
+        },
+        {
+            "name": "T",
+            "description": "uppercase T",
+            "file": "tcapital_character.png"
+        },
+        {
+            "name": "U",
+            "description": "uppercase U",
+            "file": "ucapital_character.png"
+        },
+        {
+            "name": "V",
+            "description": "uppercase V",
+            "file": "vcapital_character.png"
+        },
+        {
+            "name": "W",
+            "description": "uppercase W",
+            "file": "wcapital_character.png"
+        },
+        {
+            "name": "X",
+            "description": "uppercase X",
+            "file": "xcapital_character.png"
+        },
+        {
+            "name": "Y",
+            "description": "uppercase Y",
+            "file": "ycapital_character.png"
+        },
+        {
+            "name": "Z",
+            "description": "uppercase Z",
+            "file": "zcapital_character.png"
+        },
+        {
+            "name": "a",
+            "description": "lowercase A",
+            "file": "alower_character.png"
+        },
+        {
+            "name": "b",
+            "description": "lowercase B",
+            "file": "blower_character.png"
+        },
+        {
+            "name": "c",
+            "description": "lowercase C",
+            "file": "clower_character.png"
+        },
+        {
+            "name": "d",
+            "description": "lowercase D",
+            "file": "dlower_character.png"
+        },
+        {
+            "name": "e",
+            "description": "lowercase E",
+            "file": "elower_character.png"
+        },
+        {
+            "name": "f",
+            "description": "lowercase F",
+            "file": "flower_character.png"
+        },
+        {
+            "name": "g",
+            "description": "lowercase G",
+            "file": "glower_character.png"
+        },
+        {
+            "name": "h",
+            "description": "lowercase H",
+            "file": "hlower_character.png"
+        },
+        {
+            "name": "i",
+            "description": "lowercase I",
+            "file": "ilower_character.png"
+        },
+        {
+            "name": "j",
+            "description": "lowercase J",
+            "file": "jlower_character.png"
+        },
+        {
+            "name": "k",
+            "description": "lowercase K",
+            "file": "klower_character.png"
+        },
+        {
+            "name": "l",
+            "description": "lowercase L",
+            "file": "llower_character.png"
+        },
+        {
+            "name": "m",
+            "description": "lowercase M",
+            "file": "mlower_character.png"
+        },
+        {
+            "name": "n",
+            "description": "lowercase N",
+            "file": "nlower_character.png"
+        },
+        {
+            "name": "o",
+            "description": "lowercase O",
+            "file": "olower_character.png"
+        },
+        {
+            "name": "p",
+            "description": "lowercase P",
+            "file": "plower_character.png"
+        },
+        {
+            "name": "q",
+            "description": "lowercase Q",
+            "file": "qlower_character.png"
+        },
+        {
+            "name": "r",
+            "description": "lowercase R",
+            "file": "rlower_character.png"
+        },
+        {
+            "name": "s",
+            "description": "lowercase S",
+            "file": "slower_character.png"
+        },
+        {
+            "name": "t",
+            "description": "lowercase T",
+            "file": "tlower_character.png"
+        },
+        {
+            "name": "u",
+            "description": "lowercase U",
+            "file": "ulower_character.png"
+        },
+        {
+            "name": "v",
+            "description": "lowercase V",
+            "file": "vlower_character.png"
+        },
+        {
+            "name": "w",
+            "description": "lowercase W",
+            "file": "wlower_character.png"
+        },
+        {
+            "name": "x",
+            "description": "lowercase X",
+            "file": "xlower_character.png"
+        },
+        {
+            "name": "y",
+            "description": "lowercase Y",
+            "file": "ylower_character.png"
+        },
+        {
+            "name": "z",
+            "description": "lowercase Z",
+            "file": "zlower_character.png"
+        },
+        {
+            "name": "0",
+            "description": "number 0",
+            "file": "0.png"
+        },
+        {
+            "name": "1",
+            "description": "number 1",
+            "file": "1.png"
+        },
+        {
+            "name": "2",
+            "description": "number 2",
+            "file": "2.png"
+        },
+        {
+            "name": "3",
+            "description": "number 3",
+            "file": "3.png"
+        },
+        {
+            "name": "4",
+            "description": "number 4",
+            "file": "4.png"
+        },
+        {
+            "name": "5",
+            "description": "number 5",
+            "file": "5.png"
+        },
+        {
+            "name": "6",
+            "description": "number 6",
+            "file": "6.png"
+        },
+        {
+            "name": "7",
+            "description": "number 7",
+            "file": "7.png"
+        },
+        {
+            "name": "8",
+            "description": "number 8",
+            "file": "8.png"
+        },
+        {
+            "name": "9",
+            "description": "number 9",
+            "file": "9.png"
+        }
+    ]
+}
